@@ -16,7 +16,7 @@ locals {
   key_vault_name      = "kv-${local.prefix}"
   vm_name             = "vm-${local.prefix}"
 
-  
+
 
   tags = {
     brand       = var.brand

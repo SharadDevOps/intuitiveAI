@@ -28,7 +28,7 @@ module "virtual_network" {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "443"
-      source_address_prefix      = "*"          # public web service
+      source_address_prefix      = "*" # public web service
       destination_address_prefix = "*"
     }
     allow-ssh = {
@@ -38,7 +38,7 @@ module "virtual_network" {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "22"
-      source_address_prefix      = var.allowed_ssh_cidr   # your IP only — NOT *
+      source_address_prefix      = var.allowed_ssh_cidr # your IP only — NOT *
       destination_address_prefix = "*"
     }
   }
@@ -53,8 +53,8 @@ module "key_vault" {
   key_vault_name      = local.key_vault_name
   location            = var.location
   resource_group_name = module.resource_group.name
-  
-  tags                = local.tags
+
+  tags = local.tags
 }
 
 # Deployer / operator grant — broad enough to manage secrets in the vault.
@@ -77,7 +77,7 @@ module "compute" {
   subnet_id           = module.virtual_network.subnet_ids["web"]
   admin_username      = var.admin_username
   ssh_public_key      = file(var.ssh_public_key_path)
-  vm_size            = var.vm_size
+  vm_size             = var.vm_size
   custom_data         = base64encode(file("${path.module}/../../../../scripts/cloud-init.sh"))
   tags                = local.tags
 }
