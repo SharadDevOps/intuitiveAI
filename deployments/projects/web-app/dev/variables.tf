@@ -59,3 +59,24 @@ variable "subscription_id" {
   description = "The subscription ID of the Azure service principal."
 }
 
+variable "allowed_ssh_cidr" {
+  type        = string
+  description = "CIDR allowed to SSH to the VM. Your IP only — never 0.0.0.0/0."
+}
+
+variable "admin_username" {
+  type        = string
+  description = "Admin username for SSH."
+}
+
+variable "ssh_public_key_path" {
+  type        = string
+  description = "Path to the SSH public key for the admin user."
+}
+
+variable "vm_size" {
+  type        = string
+  description = "VM SKU."
+}
+
+
