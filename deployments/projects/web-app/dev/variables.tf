@@ -39,23 +39,24 @@ variable "brand_alias" {
   description = "The alias for the brand."
 }
 
-variable "client_id" {
+variable "allowed_ssh_cidr" {
   type        = string
-  description = "The client ID of the Azure service principal."
+  description = "CIDR allowed to SSH to the VM. Your IP only — never 0.0.0.0/0."
 }
 
-variable "client_secret" {
+variable "admin_username" {
   type        = string
-  description = "The client secret of the Azure service principal."
+  description = "Admin username for SSH."
 }
 
-variable "tenant_id" {
+variable "ssh_public_key_path" {
   type        = string
-  description = "The tenant ID of the Azure service principal."
+  description = "Path to the SSH public key for the admin user."
 }
 
-variable "subscription_id" {
+variable "vm_size" {
   type        = string
-  description = "The subscription ID of the Azure service principal."
+  description = "VM SKU."
 }
+
 

@@ -1,0 +1,28 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# terraform.tfvars is git-ignored and must never be committed.
+
+# --- Project / naming ---
+location           = "centralus"       # must be permitted by the allowed-locations policy
+location_alias     = "cus"
+project_name       = "web-app"
+project_name_alias = "wa"
+environment        = "dev"
+environment_alias  = "dev"
+brand              = "intuitiveAI"
+brand_alias        = "intai"
+
+# --- Network security ---
+allowed_ssh_cidr = "YOUR.IP.HERE/32"   # your admin IP only — never 0.0.0.0/0
+
+# --- VM details ---
+ssh_public_key_path = "~/.ssh/your_key.pub"   # path to YOUR SSH public key
+vm_size             = "Standard_D2s_v3"       # override if region lacks capacity
+admin_username      = "azureuser"
+
+
+
+# Azure SP credentials are NOT set here. Export them before running:
+#   $env:TF_VAR_client_id = "..."      (or use ARM_CLIENT_ID)
+#   $env:TF_VAR_client_secret = "..."
+#   $env:TF_VAR_tenant_id = "..."
+#   $env:TF_VAR_subscription_id = "..."
